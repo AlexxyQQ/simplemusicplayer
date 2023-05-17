@@ -1,0 +1,78 @@
+name: musicplayer
+description: A Music App.
+
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.19.2 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  # Local Storage
+  hive_flutter: ^1.1.0
+  # Fetching audio from device
+  on_audio_query: ^2.6.2
+  # Moving text
+  marquee: ^2.2.3
+  # Asking for permission
+  permission_handler: ^10.2.0
+  # Playing audio
+  just_audio: ^0.9.32
+  just_audio_background: ^0.0.1-beta.9 # Used to play audio in background
+  just_audio_windows: ^0.2.0 # Used to play audio in windows
+  # StateManagement
+  get: ^4.6.5
+  # Path of device
+  path_provider: ^2.0.14
+  # Used to combine streams
+  rxdart: ^0.27.7
+  # Animated Icons
+  rive: ^0.10.3
+  lottie: ^2.3.2
+  http: ^0.13.5
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/
+    - assets/icons/
+    - assets/splash_screen/
+    - assets/lottie/
+
+  fonts:
+    - family: Sans
+      fonts:
+        - asset: assets\fonts\OpenSans_SemiCondensed\OpenSans_SemiCondensed-ExtraBold.ttf
+          weight: 800
+        - asset: assets\fonts\OpenSans_SemiCondensed\OpenSans_SemiCondensed-ExtraBoldItalic.ttf
+          weight: 800
+          style: italic
+        - asset: assets/fonts/OpenSans_SemiCondensed/OpenSans_SemiCondensed-Bold.ttf
+          weight: 700
+        - asset: assets\fonts\OpenSans_SemiCondensed\OpenSans_SemiCondensed-BoldItalic.ttf
+          weight: 700
+          style: italic
+        - asset: assets\fonts\OpenSans_SemiCondensed\OpenSans_SemiCondensed-Italic.ttf
+          weight: 500
+          style: italic
+        - asset: assets\fonts\OpenSans_SemiCondensed\OpenSans_SemiCondensed-LightItalic.ttf
+          weight: 200
+          style: italic
+        - asset: assets\fonts\OpenSans_SemiCondensed\OpenSans_SemiCondensed-Medium.ttf
+        - asset: assets\fonts\OpenSans_SemiCondensed\OpenSans_SemiCondensed-MediumItalic.ttf
+          style: italic
+        - asset: assets\fonts\OpenSans_SemiCondensed\OpenSans_SemiCondensed-Regular.ttf
+        - asset: assets\fonts\OpenSans_SemiCondensed\OpenSans_SemiCondensed-SemiBold.ttf
+        - asset: assets\fonts\OpenSans_SemiCondensed\OpenSans_SemiCondensed-SemiBoldItalic.ttf
+          style: italic
