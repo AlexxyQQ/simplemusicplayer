@@ -1,45 +1,66 @@
-name: musicplayer
-description: A Music App.
+name: simplemusicplayer
+description: A Simple Music App.
 
 publish_to: "none"
 
 version: 1.0.0+1
 
+scripts:
+  # rps is the command initiatior
+  gen: "dart run build_runner build --delete-conflicting-outputs"
+  split: "flutter build apk --split-per-abi"
+  apk: "flutter build apk"
+  bundele: "flutter build appbundle"
+  fix: "dart fix --apply"
+
 environment:
-  sdk: ">=2.19.2 <3.0.0"
+  sdk: ">=3.0.0 <4.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
+
   cupertino_icons: ^1.0.2
-  # Local Storage
-  hive_flutter: ^1.1.0
-  # Fetching audio from device
-  on_audio_query: ^2.6.2
-  # Moving text
-  marquee: ^2.2.3
-  # Asking for permission
-  permission_handler: ^10.2.0
-  # Playing audio
-  just_audio: ^0.9.32
-  just_audio_background: ^0.0.1-beta.9 # Used to play audio in background
-  just_audio_windows: ^0.2.0 # Used to play audio in windows
-  # StateManagement
-  get: ^4.6.5
-  # Path of device
-  path_provider: ^2.0.14
-  # Used to combine streams
-  rxdart: ^0.27.7
-  # Animated Icons
-  rive: ^0.10.3
+
   lottie: ^2.3.2
-  http: ^0.13.5
+  google_sign_in: ^6.1.0
+  on_audio_query: ^2.9.0
+  permission_handler: ^11.0.1
+  path_provider: ^2.0.15
+  font_awesome_flutter: ^10.4.0
+  shimmer: ^3.0.0
+  flutter_bloc: ^8.1.3
+  get_it: ^7.6.0
+  just_audio: ^0.9.34
+  hive_flutter: ^1.1.0
+  hive: ^2.2.3
+  connectivity_plus: ^4.0.1
+  dio: ^4.0.4
+  dartz: ^0.10.1
+  device_info_plus: ^9.0.2
+  equatable: ^2.0.5
+  socket_io_client: ^2.0.3+1
+  palette_generator: ^0.3.3+2
+  image_picker: ^1.0.2
+  flutter_screenutil: ^5.9.0
+  intl: ^0.18.1
+  google_fonts: ^6.1.0
+  cached_network_image: ^3.3.0
+  flutter_svg: ^2.0.9
+  google_nav_bar: ^5.0.6
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
 
   flutter_lints: ^2.0.0
+  build_runner: ^2.4.5
+  hive_generator: ^2.0.0
+  mockito: ^5.4.2
+  pretty_dio_logger: ^1.2.0-beta-1
+
+  integration_test:
+    sdk: flutter
 
 flutter:
   uses-material-design: true
@@ -49,30 +70,22 @@ flutter:
     - assets/icons/
     - assets/splash_screen/
     - assets/lottie/
+    - assets/iconography/
 
   fonts:
-    - family: Sans
+    - family: Manrope
       fonts:
-        - asset: assets\fonts\OpenSans_SemiCondensed\OpenSans_SemiCondensed-ExtraBold.ttf
-          weight: 800
-        - asset: assets\fonts\OpenSans_SemiCondensed\OpenSans_SemiCondensed-ExtraBoldItalic.ttf
-          weight: 800
-          style: italic
-        - asset: assets/fonts/OpenSans_SemiCondensed/OpenSans_SemiCondensed-Bold.ttf
-          weight: 700
-        - asset: assets\fonts\OpenSans_SemiCondensed\OpenSans_SemiCondensed-BoldItalic.ttf
-          weight: 700
-          style: italic
-        - asset: assets\fonts\OpenSans_SemiCondensed\OpenSans_SemiCondensed-Italic.ttf
-          weight: 500
-          style: italic
-        - asset: assets\fonts\OpenSans_SemiCondensed\OpenSans_SemiCondensed-LightItalic.ttf
+        - asset: fonts/static/Manrope-ExtraLight.ttf
           weight: 200
-          style: italic
-        - asset: assets\fonts\OpenSans_SemiCondensed\OpenSans_SemiCondensed-Medium.ttf
-        - asset: assets\fonts\OpenSans_SemiCondensed\OpenSans_SemiCondensed-MediumItalic.ttf
-          style: italic
-        - asset: assets\fonts\OpenSans_SemiCondensed\OpenSans_SemiCondensed-Regular.ttf
-        - asset: assets\fonts\OpenSans_SemiCondensed\OpenSans_SemiCondensed-SemiBold.ttf
-        - asset: assets\fonts\OpenSans_SemiCondensed\OpenSans_SemiCondensed-SemiBoldItalic.ttf
-          style: italic
+        - asset: fonts/static/Manrope-Light.ttf
+          weight: 300
+        - asset: fonts/static/Manrope-Regular.ttf
+          weight: 400
+        - asset: fonts/static/Manrope-Medium.ttf
+          weight: 500
+        - asset: fonts/static/Manrope-SemiBold.ttf
+          weight: 600
+        - asset: fonts/static/Manrope-Bold.ttf
+          weight: 700
+        - asset: fonts/static/Manrope-ExtraBold.ttf
+          weight: 800
