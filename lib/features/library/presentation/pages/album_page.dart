@@ -4,14 +4,14 @@ import 'package:simplemusicplayer/features/library/presentation/cubit/library_st
 import 'package:simplemusicplayer/features/library/presentation/cubit/libray_cubit.dart';
 import 'package:simplemusicplayer/features/library/presentation/widgets/album_list_page.dart';
 
-class LibraryPage extends StatefulWidget {
-  const LibraryPage({super.key});
+class AlbumPage extends StatefulWidget {
+  const AlbumPage({super.key});
 
   @override
-  State<LibraryPage> createState() => _LibraryPageState();
+  State<AlbumPage> createState() => _AlbumPageState();
 }
 
-class _LibraryPageState extends State<LibraryPage> {
+class _AlbumPageState extends State<AlbumPage> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<LibraryCubit, LibraryState>(
@@ -34,10 +34,6 @@ class _LibraryPageState extends State<LibraryPage> {
   }
 
   Widget _albums(LibraryState state) {
-    if (state.category == 'Albums') {
-      return const AlbumListPage();
-    } else {
-      return const SizedBox.shrink();
-    }
+    return const AlbumListPage();
   }
 }

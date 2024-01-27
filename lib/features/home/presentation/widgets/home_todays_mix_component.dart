@@ -102,7 +102,7 @@ class HomeTodaysMixComponent extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          "Today's Mix",
+                          "Favourite Songs",
                           style: Theme.of(context).textTheme.h5.copyWith(
                                 color: AppColors().onBackground,
                               ),
@@ -123,6 +123,10 @@ class HomeTodaysMixComponent extends StatelessWidget {
                       height: 180,
                       child: ListView.builder(
                         scrollDirection: Axis.horizontal,
+                        // only show 10 items
+                        itemCount: state.favouriteSongs!.length > 10
+                            ? 10
+                            : state.favouriteSongs!.length,
                         itemBuilder: ((context, index) {
                           return GestureDetector(
                             onTap: () {
@@ -151,10 +155,7 @@ class HomeTodaysMixComponent extends StatelessWidget {
                                   Stack(
                                     children: [
                                       SongArtWork(
-                                        song: state.albums[index].songs!
-                                            .firstWhere(
-                                          (song) => song.albumArt != null,
-                                        ),
+                                        song: state.favouriteSongs![index],
                                         height: 110,
                                         width: 180,
                                         borderRadius: 8,
@@ -187,7 +188,7 @@ class HomeTodaysMixComponent extends StatelessWidget {
                                   const SizedBox(height: 8),
                                   // Album Details
                                   Text(
-                                    "${state.albums[index].artist}, ${state.albums[index].artist}, ${state.albums[index].artist},${state.albums[index].artist}",
+                                    "${state.favouriteSongs?[index].title}",
                                     overflow: TextOverflow.ellipsis,
                                     textAlign: TextAlign.start,
                                     maxLines: 2,
@@ -203,9 +204,6 @@ class HomeTodaysMixComponent extends StatelessWidget {
                             ),
                           );
                         }),
-                        // only show 10 items
-                        itemCount:
-                            state.albums.length > 10 ? 10 : state.albums.length,
                       ),
                     ),
                   ],

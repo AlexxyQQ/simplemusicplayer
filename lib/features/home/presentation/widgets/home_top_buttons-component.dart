@@ -23,7 +23,20 @@ class TopButtons extends StatelessWidget {
       children: [
         // Favorite Button
         KButton(
-          onPressed: () {},
+          onPressed: () async {
+            final nav = Navigator.of(context);
+            await BlocProvider.of<QueryCubit>(context).getFavouriteSongs();
+            nav.push(
+              MaterialPageRoute(
+                builder: (context) => SongsListPage(
+                  songs: BlocProvider.of<QueryCubit>(context)
+                          .state
+                          .favouriteSongs ??
+                      [],
+                ),
+              ),
+            );
+          },
           label: 'Favorite',
           backgroundColor: AppDarkColor.primary,
           foregroundColor: AppDarkColor.onPrimary,

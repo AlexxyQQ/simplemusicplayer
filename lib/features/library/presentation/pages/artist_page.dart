@@ -34,10 +34,6 @@ class _ArtistPageState extends State<ArtistPage> {
   }
 
   Widget _artists(LibraryState state) {
-    if (state.category == 'Artists') {
-      return const ArtistListPage();
-    } else {
-      return const SizedBox.shrink();
-    }
+    return const ArtistListPage();
   }
 }

@@ -17,23 +17,10 @@ class UpdateSongUsecase extends UseCase<String, UpdateParams> {
   @override
   Future<Either<AppErrorHandler, String>> call(UpdateParams params) async {
     try {
-      final setting = await settingsHiveService.getSettings();
-
-      if (setting.token == null && !setting.offline) {
-        return Left(
-          AppErrorHandler(
-            message: 'No Token',
-            status: false,
-          ),
-        );
-      } else {
-        final response = await audioQueryRepository.updateSong(
-          song: params.song,
-          offline: params.offline,
-          token: setting.token ?? '',
-        );
-        return response;
-      }
+      final response = await audioQueryRepository.updateSong(
+        song: params.song,
+      );
+      return response;
     } catch (e) {
       return Left(
         AppErrorHandler(

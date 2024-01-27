@@ -4,7 +4,6 @@ import 'package:simplemusicplayer/core/common/exports.dart';
 import 'package:simplemusicplayer/features/bottom_nav/presentation/widget/duration_slider.dart';
 import 'package:simplemusicplayer/features/now_playing/presentation/cubit/now_playing_state.dart';
 import 'package:simplemusicplayer/features/now_playing/presentation/widgets/audio_controllers.dart';
-import 'package:simplemusicplayer/features/now_playing/presentation/widgets/lyrics_view.dart';
 import 'package:simplemusicplayer/features/now_playing/presentation/widgets/more_controls.dart';
 import 'package:simplemusicplayer/features/now_playing/presentation/widgets/queue_view.dart';
 
@@ -21,7 +20,6 @@ class _NowPlayingPageState extends State<NowPlayingPage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
   }
 
@@ -133,13 +131,7 @@ class _NowPlayingPageState extends State<NowPlayingPage> {
                   MoreControls(
                     setScroll: scrollToTarget,
                   ),
-                  SizedBox(
-                    height: 12.h,
-                  ),
-                  //? LyricsView
-                  LyricsView(
-                    song: state.currentSong!,
-                  ),
+
                   SizedBox(
                     height: 24.h,
                   ),

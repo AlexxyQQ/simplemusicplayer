@@ -33,12 +33,19 @@ class MoreControls extends StatelessWidget {
             ),
           ],
         ),
-        //? Share and Queue
+        //? Favorite and Queue
         Row(
           children: [
-            //? Share
+            //? Favorite
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                BlocProvider.of<NowPlayingCubit>(context).favouriteSong(
+                  song: BlocProvider.of<NowPlayingCubit>(context)
+                      .state
+                      .currentSong!,
+                  context: context,
+                );
+              },
               icon: SvgPicture.asset(
                 BlocProvider.of<NowPlayingCubit>(context)
                         .state

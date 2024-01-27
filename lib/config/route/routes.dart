@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:simplemusicplayer/features/bottom_nav/presentation/page/bottom_navigation.dart';
 import 'package:simplemusicplayer/features/home/presentation/widgets/folder_page.dart';
+import 'package:simplemusicplayer/features/library/presentation/pages/album_page.dart';
+import 'package:simplemusicplayer/features/library/presentation/pages/artist_page.dart';
 import 'package:simplemusicplayer/features/now_playing/presentation/page/now_playing_page.dart';
 
 import '../../core/common/no_page_route.dart';
@@ -17,6 +19,8 @@ class AppRoutes {
   static const String manageAllSongsRoute = '/manageAllSongs';
   static const String manageAllPublicSongsRoute = '/manageAllPublicSongs';
   static const String folderPageRoute = '/folderPage';
+  static const String artistPageRoute = '/artistPage';
+  static const String albumPageRoute = '/albumPage';
 
   static final Map<String, Widget Function(BuildContext)> appPageRoutes = {
     // Starters
@@ -26,6 +30,9 @@ class AppRoutes {
     bottomNavRoute: (context) => const BottomNavigationScreen(),
     folderPageRoute: (context) => const FolderPage(),
     nowPlayingRoute: (context) => const NowPlayingPage(),
+    artistPageRoute: (context) => const ArtistPage(),
+    albumPageRoute: (context) => const AlbumPage(),
+
     // Settings
   };
 

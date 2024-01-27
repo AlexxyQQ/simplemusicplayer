@@ -25,7 +25,6 @@ class AudioQueryLocalDataSource implements IAudioQueryDataSource {
     required Function(int) onProgress,
     bool? first,
     bool? refetch,
-    required String token,
   }) async {
     try {
       final List<SongModel> allQuerySongs = await onAudioQuery.querySongs(
@@ -110,8 +109,6 @@ class AudioQueryLocalDataSource implements IAudioQueryDataSource {
   @override
   Future<Either<AppErrorHandler, String>> updateSong({
     required AppSongModel song,
-    required String token,
-    required bool offline,
   }) async {
     try {
       final queryHiveService = get<QueryHiveService>();
@@ -138,7 +135,6 @@ class AudioQueryLocalDataSource implements IAudioQueryDataSource {
   @override
   Future<Either<AppErrorHandler, String>> addSong({
     required AppSongModel song,
-    required String token,
   }) async {
     try {
       final queryHiveService = get<QueryHiveService>();
@@ -165,7 +161,6 @@ class AudioQueryLocalDataSource implements IAudioQueryDataSource {
   @override
   Future<Either<AppErrorHandler, String>> addSongs({
     required List<AppSongModel> songs,
-    required String token,
   }) async {
     try {
       final queryHiveService = get<QueryHiveService>();
@@ -193,7 +188,6 @@ class AudioQueryLocalDataSource implements IAudioQueryDataSource {
   @override
   Future<Either<AppErrorHandler, List<AppAlbumModel>>> getAllAlbums({
     bool? refetch,
-    required String token,
   }) async {
     try {
       final List<AlbumModel> allQueryAlbums = await onAudioQuery.queryAlbums(
@@ -223,7 +217,6 @@ class AudioQueryLocalDataSource implements IAudioQueryDataSource {
   @override
   Future<Either<AppErrorHandler, List<AppArtistModel>>> getAllArtists({
     bool? refetch,
-    required String token,
   }) async {
     try {
       final List<ArtistModel> allQueryArtists = await onAudioQuery.queryArtists(
@@ -251,7 +244,6 @@ class AudioQueryLocalDataSource implements IAudioQueryDataSource {
   @override
   Future<Either<AppErrorHandler, List<AppFolderModel>>> getAllFolders({
     bool? refetch,
-    required String token,
   }) async {
     try {
       final List<String> allQueryFolders = await onAudioQuery.queryAllPath();

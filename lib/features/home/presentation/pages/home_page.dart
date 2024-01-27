@@ -33,7 +33,8 @@ class HomePage extends StatelessWidget {
                 SizedBox(height: 8.h),
                 const HomeRecentlyPayedComponent(),
                 SizedBox(height: 8.h),
-                const HomeTodaysMixComponent(),
+                if (state.favouriteSongs!.isNotEmpty)
+                  const HomeTodaysMixComponent(),
                 SizedBox(height: 8.h),
                 const HomeAlbumComponent(),
                 SizedBox(height: 8.h),

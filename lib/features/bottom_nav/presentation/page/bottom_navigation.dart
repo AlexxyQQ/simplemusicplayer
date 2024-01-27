@@ -11,6 +11,7 @@ import 'package:simplemusicplayer/features/bottom_nav/presentation/widget/mini_p
 import 'package:simplemusicplayer/features/home/presentation/cubit/home_state.dart';
 import 'package:simplemusicplayer/features/home/presentation/cubit/query_cubit.dart';
 import 'package:simplemusicplayer/features/home/presentation/pages/home_page.dart';
+import 'package:simplemusicplayer/features/library/presentation/pages/artist_page.dart';
 import 'package:simplemusicplayer/features/library/presentation/pages/song_page.dart';
 import 'package:simplemusicplayer/injection/app_injection_container.dart';
 
@@ -27,7 +28,7 @@ class _BottomNavigationScreenState extends State<BottomNavigationScreen> {
 
   final List<Widget> _widgetOptions = [
     const HomePage(),
-    const Placeholder(),
+    const ArtistPage(),
     const SongPage(),
   ];
 

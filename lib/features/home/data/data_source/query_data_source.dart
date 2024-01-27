@@ -14,35 +14,28 @@ abstract class IAudioQueryDataSource {
     required Function(int) onProgress,
     bool? first,
     bool? refetch,
-    required String token,
   });
 
   Future<Either<AppErrorHandler, String>> updateSong({
     required AppSongModel song,
-    required String token,
-    required bool offline,
   });
 
   Future<Either<AppErrorHandler, String>> addSong({
     required AppSongModel song,
-    required String token,
   });
 
   Future<Either<AppErrorHandler, String>> addSongs({
     required List<AppSongModel> songs,
-    required String token,
   });
 
   //
 
   Future<Either<AppErrorHandler, List<AppAlbumModel>>> getAllAlbums({
     bool? refetch,
-    required String token,
   });
 
   Future<Either<AppErrorHandler, List<AppArtistModel>>> getAllArtists({
     bool? refetch,
-    required String token,
   });
 }
 
@@ -61,7 +54,6 @@ class AudioQueryDataSourceImpl implements IAudioQueryDataSource {
     required Function(int p1) onProgress,
     bool? first,
     bool? refetch,
-    required String token,
   }) async {
     try {
       if (refetch == true) {
@@ -70,7 +62,6 @@ class AudioQueryDataSourceImpl implements IAudioQueryDataSource {
           onProgress: onProgress,
           first: first,
           refetch: refetch,
-          token: token,
         );
       } else {
         final hiveSongs = await queryHiveService.getAllSongs();
@@ -102,12 +93,10 @@ class AudioQueryDataSourceImpl implements IAudioQueryDataSource {
   @override
   Future<Either<AppErrorHandler, String>> addSong({
     required AppSongModel song,
-    required String token,
   }) async {
     try {
       return localDataSource.addSong(
         song: song,
-        token: token,
       );
     } catch (e) {
       return Left(
@@ -122,13 +111,11 @@ class AudioQueryDataSourceImpl implements IAudioQueryDataSource {
   @override
   Future<Either<AppErrorHandler, String>> addSongs({
     required List<AppSongModel> songs,
-    required String token,
   }) async {
     try {
       // else return data from the local storage
       return localDataSource.addSongs(
         songs: songs,
-        token: token,
       );
     } catch (e) {
       return Left(
@@ -143,14 +130,10 @@ class AudioQueryDataSourceImpl implements IAudioQueryDataSource {
   @override
   Future<Either<AppErrorHandler, String>> updateSong({
     required AppSongModel song,
-    required String token,
-    required bool offline,
   }) async {
     try {
       return localDataSource.updateSong(
         song: song,
-        token: token,
-        offline: offline,
       );
     } catch (e) {
       return Left(
@@ -166,13 +149,11 @@ class AudioQueryDataSourceImpl implements IAudioQueryDataSource {
   @override
   Future<Either<AppErrorHandler, List<AppAlbumModel>>> getAllAlbums({
     bool? refetch,
-    required String token,
   }) async {
     try {
       if (refetch == true) {
         return localDataSource.getAllAlbums(
           refetch: refetch,
-          token: token,
         );
       } else {
         final hiveAlbums = await queryHiveService.getAllAlbums();
@@ -205,13 +186,11 @@ class AudioQueryDataSourceImpl implements IAudioQueryDataSource {
   @override
   Future<Either<AppErrorHandler, List<AppArtistModel>>> getAllArtists({
     bool? refetch,
-    required String token,
   }) async {
     try {
       if (refetch == true) {
         return localDataSource.getAllArtists(
           refetch: refetch,
-          token: token,
         );
       } else {
         final hiveArtists = await queryHiveService.getAllArtists();
@@ -242,13 +221,11 @@ class AudioQueryDataSourceImpl implements IAudioQueryDataSource {
 
   Future<Either<AppErrorHandler, List<AppFolderModel>>> getAllFolders({
     bool? refetch,
-    required String token,
   }) async {
     try {
       if (refetch == true) {
         return localDataSource.getAllFolders(
           refetch: refetch,
-          token: token,
         );
       } else {
         final hiveFolders = await queryHiveService.getAllFolders();

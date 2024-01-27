@@ -51,6 +51,7 @@ class QueryCubit extends Cubit<HomeState> {
     await getAllArtists(first: settings.firstTime, refetch: true);
     await getAllFolders(first: settings.firstTime, refetch: true);
     await getRecentlyPlayedSongs();
+    await getFavouriteSongs();
     // Update Settings
     await get<SettingsHiveService>().updateSettings(
       settings.copyWith(
@@ -432,14 +433,14 @@ class QueryCubit extends Cubit<HomeState> {
     required SongEntity song,
   }) async {
     final setting = await get<SettingsHiveService>().getSettings();
-
     await updateSongUsecase.call(
       UpdateParams(
         song: song,
         offline: setting.offline,
       ),
     );
-    // getAllSongs(first: false, refetch: false);
+    getAllSongs(first: false, refetch: false);
+    getFavouriteSongs();
   }
 
   void update(HomeState copyWith) {
